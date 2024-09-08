@@ -5,63 +5,176 @@
   <meta charset="UTF-8">
   <style>
     /* 👉 Task 1- Apply the reset found on this page: https://www.joshwcomeau.com/css/custom-css-reset/ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font: inherit;
+      vertical-align: baseline;
+    }
 
+    html {
+      line-height: 1.15;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    main {
+      display: block;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+    }
+
+    a {
+      background-color: transparent;
+    }
+
+    img {
+      border-style: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    button,
+    input {
+      overflow: visible;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    textarea {
+      overflow: auto;
+    }
   </style>
+
   <style>
     /* 👉 Task 2- Target the body element.
-    Apply a font family of Arial to the body element.
-    The font property is inherited by descendant (nested) elements. */
+    Apply a font family of Arial to the body element. */
+    body {
+      font-family: Arial, sans-serif;
+    }
 
     /* 👉 Task 3- Target the element with id headerTop.
     Apply white color to the text, some padding using px or rem units, and a dark background color. */
+    #headerTop {
+      color: white;
+      background-color: #333;
+      padding: 10px;
+    }
 
     /* 👉 Task 4- Target the divs that are directly nested underneath the id headerTop.
-    Make them display as inline block, instead of block.
-    This will make them render on the same line. */
+    Make them display as inline block, instead of block. */
+    #headerTop > div {
+      display: inline-block;
+    }
 
     /* 👉 Task 5- Target the spans that are nested inside the id headerTop.
-    Make them have some margin on the right.
-    This will prevent the spans from crashing against one another. */
+    Make them have some margin on the right. */
+    #headerTop span {
+      margin-right: 10px;
+    }
 
     /* 👉 Task 6- Target the first span nested inside the element with id headerTop.
     Make it have a font weight of bold, and transform the text to uppercase. */
+    #headerTop span:first-child {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
     /* 👉 Task 7- Target the id headerBottom.
     Give it a bottom border of 1 pixel, solid gray, and a little bit of padding using px or rem units. */
+    #headerBottom {
+      border-bottom: 1px solid gray;
+      padding: 10px;
+    }
 
     /* 👉 Task 8- Target the divs that are nested directly inside the element with id headerBottom.
-    Make them display as inline block, instead of block.
-    This will cause them to render on the same line.
-    You can consolidate this rule with the one on step. 4 */
+    Make them display as inline block, instead of block. */
+    #headerBottom > div {
+      display: inline-block;
+    }
 
-    /* 👉 Task 9- Target the "Compose" button, although note it's a div instead an actual button.
+    /* 👉 Task 9- Target the "Compose" button, although note it's a div instead of an actual button.
     Give it color, bold text, background, padding, border radius, margin right, and a cursor of pointer. */
+    #headerBottom > div:first-child {
+      color: white;
+      font-weight: bold;
+      background-color: #007bff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 15px;
+      cursor: pointer;
+    }
 
-    /* 👉 Task 10- Research how to remove all the default styling of button elements.
-    Target the button elements inside the element with id headerBottom.
-    Remove all their styling, give them a bit of margin to the right, and a cursor of pointer. */
+    /* 👉 Task 10- Remove all the default styling of button elements. */
+    button {
+      all: unset;
+      margin-right: 10px;
+      cursor: pointer;
+    }
 
     /* 👉 Task 11- Target the button element inside the id headerBottom that has a class of active
-    Make the font weight be bolder, and add a bottom border of 2 pixels solid color (you choose the color).
-    Add the class name to the "All mail" button. */
+    Make the font weight bolder, and add a bottom border of 2 pixels solid color (you choose the color). */
+    #headerBottom button.active {
+      font-weight: bolder;
+      border-bottom: 2px solid #007bff;
+    }
 
     /* 👉 Task 12- Target all divs directly nested inside elements with a class of email,
-    and make them display as inline-block elements.
-    This will make each email render all its details in the same line*/
+    and make them display as inline-block elements. */
+    .email > div {
+      display: inline-block;
+    }
 
     /* 👉 Task 13- Target the elements with a class of email.
     Give them some padding, bigger padding to the left, and a bottom border of very light grey. */
+    .email {
+      padding: 10px;
+      padding-left: 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
 
     /* 👉 Task 14- Target each div inside the element with a class of email.
     Make the email author and the email subject take 35% of the width of the parent element.
-    Make the check, the date and the size take up 8% of the width of the parent element.
-    This will arrange the details in visible columns. */
+    Make the check, the date and the size take up 8% of the width of the parent element. */
+    .email-check {
+      width: 8%;
+    }
 
-    /* 👉 Task 15- Target the second email and have its font weight be bold.
-    This will make it look "unread". */
+    .email-name,
+    .email-subject {
+      width: 35%;
+    }
 
-    /* Well done! Check the design file to make sure you are close enough. */
+    .email-date,
+    .email-size {
+      width: 8%;
+    }
 
+    /* 👉 Task 15- Target the second email and have its font weight be bold. */
+    #emails .email:nth-child(3) {
+      font-weight: bold;
+    }
   </style>
   <title>Document</title>
 </head>
@@ -88,7 +201,7 @@
       <div id="headerBottom">
         <div>Compose</div>
         <div>
-          <button>All mail</button>
+          <button class="active">All mail</button>
           <button>Unread</button>
           <button>Pinned</button>
           <button>VIPs</button>
